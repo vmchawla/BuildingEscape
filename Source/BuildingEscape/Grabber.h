@@ -22,6 +22,8 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -36,5 +38,20 @@ private:
 
 	//Ray-cast and grab whats in Reach
 	void Grab();
+
+	void Release();
+
+	void FindPhysicsHandleComponent();
+
+	void SetupInputComponent();
+
+	//Return hit for first physics body in reach..helper function CAN BE NULL
+	const FHitResult GetFirstPhysicsBodyHitInReach();
+
+	//helper Function to get Player Location
+	FVector GetReachLineEnd();
+
+	//helper function to get Player Location + (direction.magnitude * reach)
+	FVector GetReachLineStart();
 	
 };
